@@ -109,11 +109,13 @@ class ModelTrainer:
             predicted=best_model.predict(X_test)
 
             r2_square = r2_score(y_test, predicted)
-            return r2_square
+       
+            print(f"Best Model: {best_model_name}, R² Score: {r2_square}")
+            logging.info(f"Best Model Selected: {best_model_name}")
+            logging.info(f"R² Score on Test Data: {r2_square}")
+
+            return f"{best_model_name} → R²: {r2_square}"
             
-
-
-
             
         except Exception as e:
             raise CustomException(e,sys)
